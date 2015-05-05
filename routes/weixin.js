@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('../config');
 var API = require('wechat-enterprise');
+var WXBizMsgCrypt = require('wechat-crypto');
 var fs = require('fs');
 var path = require("path");
 var AV = require('avoscloud-sdk').AV;
