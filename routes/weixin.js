@@ -43,11 +43,11 @@ AV.initialize("f7r02mj6nyjeocgqv7psbb31mxy2hdt22zp2mcyckpkz7ll8", "blq4yetdf0ygu
 router.get('/', function (req, res) {
     console.log(req.query.echostr);
     var echostr = req.query.echostr;
-    var crypt = new WXBizMsgCrypt(config.Token, config.EncodingAESKey,config.CorpID);
-    console.log(crypt);
+    var crypt = new WXBizMsgCrypt(config.Token, config.EncodingAESKey, config.CorpID);
+    console.log("crypt: " + crypt);
 
     var newechostr = crypt.decrypt(echostr);
-    console.log(newechostr);
+    console.log("newechostr: " + newechostr);
 
     res.json(newechostr);
 });
