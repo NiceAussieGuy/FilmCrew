@@ -49,7 +49,7 @@ router.get('/', function (req, res) {
     var newechostr = crypt.decrypt(echostr);
     console.log("newechostr: " + newechostr);
 
-    res.json(newechostr);
+    res.end(JSON.stringify(newechostr));
 });
 
 //router.post('/getJsConfig', function (req, res) {
