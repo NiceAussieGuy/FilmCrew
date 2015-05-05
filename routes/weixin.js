@@ -44,6 +44,8 @@ router.get('/', function (req, res) {
     console.log(req.query.echostr);
     var echostr = req.query.echostr;
     var crypt = new WXBizMsgCrypt('Z9EzlUKEmrFkGJlgqK9O8JOS6POF7clo', 'kiBxYt2oe0GtaVnabwSFSxuR9cnBWCeivM3mUUpCkI5', 'wxd1eb2698f2e719a1');
+    console.log(crypt);
+
     echostr = crypt.decrypt(echostr);
     console.log("new echostr: " + echostr);
 
