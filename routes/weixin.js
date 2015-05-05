@@ -41,6 +41,7 @@ AV.initialize("f7r02mj6nyjeocgqv7psbb31mxy2hdt22zp2mcyckpkz7ll8", "blq4yetdf0ygu
 
 /* GET users listing. */
 router.get('/', function (req, res) {
+    console.log(req.query.echostr);
     var echostr = WXBizMsgCrypt.decrypt(req.query.echostr);
     res.end(echostr);
 });
