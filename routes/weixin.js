@@ -47,9 +47,9 @@ router.get('/', function (req, res) {
     console.log("crypt: " + crypt);
 
     var newechostr = crypt.decrypt(echostr);
-    console.log(typeof newechostr);
+    console.log(newechostr);
 
-    res.end(JSON.stringify(newechostr));
+    res.end(newechostr.message);
 });
 
 //router.post('/getJsConfig', function (req, res) {
