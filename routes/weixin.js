@@ -42,8 +42,10 @@ AV.initialize("f7r02mj6nyjeocgqv7psbb31mxy2hdt22zp2mcyckpkz7ll8", "blq4yetdf0ygu
 /* GET users listing. */
 router.get('/', function (req, res) {
     console.log(req.query.echostr);
-    var echostr = WXBizMsgCrypt('Z9EzlUKEmrFkGJlgqK9O8JOS6POF7clo', 'kiBxYt2oe0GtaVnabwSFSxuR9cnBWCeivM3mUUpCkI5', 'wxd1eb2698f2e719a1').decrypt(req.query.echostr);
-    console.log(echostr);
+    var echostr = req.query.echostr;
+    var crypt = new WXBizMsgCrypt('Z9EzlUKEmrFkGJlgqK9O8JOS6POF7clo', 'kiBxYt2oe0GtaVnabwSFSxuR9cnBWCeivM3mUUpCkI5', 'wxd1eb2698f2e719a1');
+    echostr = crypt.decrypt(echostr);
+    console.log("new echostr: " + echostr);
 
     res.end(echostr);
 });
