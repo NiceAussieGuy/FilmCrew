@@ -1,0 +1,73 @@
+#userheard {
+    height: 130px;
+    width: 130px;
+    margin: 0 auto;
+    margin-top:10px;
+    border: 1px solid #ccc;
+    border-radius: 65px;
+}
+#username {
+    width: 100px;
+    margin: 0 auto;
+    margin-top:15px;
+}
+#username p{
+    text-align: center;
+    margin:0;
+}
+#content{
+    margin-top:20px;
+
+}
+
+#content li:hover {
+    cursor: pointer;
+}
+
+#content .icon-1 {
+    width: 26px;
+    margin: 0 20px 0 10px;
+}
+
+#content .icon-2 {
+    float: right;
+    color: rgb(206, 206, 206);
+    font-size: 14px;
+    line-height: 30px;
+}
+#users :hover{
+    cursor:pointer;
+}
+#photolibrary {
+
+}
+#users{
+    color:rgb(50,137,199);
+}
+#user_post .icon-1{
+    color: rgb(0,124,203);
+}
+#user_address .icon-1{
+    color: rgb(229,28,35);
+    font-size:22px;
+}
+#user_contact .icon-1{
+    color: rgb(157,225,98);
+    font-size:21px;
+}
+#user_address , #user_contact{
+    padding:7px 11px 7px 10px;
+}
+#user_post{
+    padding-rigth:2px;
+}
+#user_address  .icon-1{
+    margin:0 18px 0 12px;
+}
+#user_address  .icon-2{
+    line-height: 37px;
+}
+.am-btn-block{
+    background: #fff;
+    color:red;
+}

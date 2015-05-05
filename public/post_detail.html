@@ -1,0 +1,231 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link rel="stylesheet" href="css/views/post_detail.css">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+
+<!--<div class="am-input-group am-input-exend">-->
+<!--<input type="text" class="am-form-field "placeholder="搜索" >-->
+<!--<span class="am-input-group-btn">-->
+<!--<button class="am-btn am-btn-extend" type="button"><span class="am-icon-search am-icon-extend"></button>-->
+<!--</span>-->
+<!--</div>-->
+<script type="text/x-handlebars-template" id="amz-tags">
+    {{#each tags}}
+    <div class="Publish" value={{this.value}}>
+        <div class="show"><img src={{this.titleimg}}></div>
+        <div class="title" value={{this.value}}>
+            <p class="username am-sans-serif">{{this.name}}</p>
+
+            <div class="content">
+                <p class="usersay am-sans-serif">{{this.usersay}}</p>
+            </div>
+            <span class="tag am-sans-serif">{{tag}}</span>
+
+            <div class="images {{this.pattern}}" value={{this.img}}>
+                {{#if this.img}}
+                {{#each this.img}}
+                <img src={{this}} class="am-radius imgpreview">
+                {{/each}}
+                {{/if}}
+            </div>
+            <span class="time am-sans-serif">{{this.time}}</span>
+        </div>
+    </div>
+    <hr data-am-widget="divider" style="" class="am-divider "/>
+
+
+    <div class="Publish userphone">
+        <div class="usercont">
+            <p class="usercontent am-sans-serif">联系方式：报名可见</p>
+        </div>
+
+        <div id="btnname">
+            <button type="button" class="am-btn am-btn-warning">报名</button>
+        </div>
+        <div id="registration">
+            <p>已报名:</p>
+
+            <div id="headtle">
+                {{#if this.relationuser}}
+                {{#each this.relationuser}}
+                <img src={{this.url}} value={{this.usersid}}&{{this.phonenumber}} class="am-radius">
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <hr data-am-widget="divider" style="" class="am-divider"/>
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+        <div class="am-modal-dialog">
+            <div class="am-modal-bd">
+                您必须填写您的电话号码
+                <input type="text" class="am-modal-prompt-input">
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<hr data-am-widget="divider" style="" class="am-divider"/>
+
+
+<!--<div id="duoshuo">-->
+    <!--<div data-am-widget="duoshuo" class="am-duoshuo am-duoshuo-default" data-ds-short-name="sunshuang">-->
+        <!--<div class="ds-thread"></div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--………………………………以下为自定义评论…………………………………………-->
+
+
+<ul class="am-comments-list  list_extent">
+    <script type="text/x-handlebars-template" id="comments">
+        {{#each comments}}
+    <li class="am-comment commentlength destroy{{this.commentid}}">
+        <a href="">
+            <img class="am-comment-avatar" src={{this.commentusershow}} alt=""/>
+        </a>
+        <div class="am-comment-main">
+            <header class="am-comment-hd">
+                <div class="am-comment-meta">
+                    <a href="#link-to-user" class="am-comment-author">{{this.commentusername}}</a>
+                    <time datetime="">{{this.times}}</time>
+                </div>
+            </header>
+
+            <div class="am-comment-bd">
+                {{#if this.relation}}
+                {{#each this.relation}}
+                <div class="relation">
+                    <img class="am-comment-avatar" src={{this.commentusershow}} alt=""/>
+                    <div class="relationcontent">
+                        <p class="am-sans-serif name">{{this.commentusername}}</p>
+                        <!--预留-->
+                        <!--<p class="time">某天前</p>-->
+                        <!--<p class="layer am-sans-serif">1楼</p>-->
+                    </div>
+                    <div class="relationsay">
+                        <p>{{this.commentcontent}}</p>
+                    </div>
+
+                    <div class="toolbar" value={{this.commentid}}>
+                        <i class="toolbtn reply reply{{this.commentid}}"><i class="am-icon-reply"></i> 回复</i>
+                    </div>
+
+                    <!-- ………………………………………………此处 回复发表……………………………………………… -->
+
+                    <div class="am-comment replypublish {{this.commentid}}" bshow="0">
+                        <a href="">
+                            <img class="am-comment-avatar nullusershow" src=imgs/nullusershow.png alt=""/>
+                        </a>
+                        <div class="am-comment-main">
+                            <div class="textarea">
+                                <textarea name="" id="" placeholder="说点什么吧"></textarea>
+                            </div>
+                            <div class="publish">
+                                <button  class="am-btn am-btn-secondary smpublish" value={{this.commentid}} userid={{this.commentuserid}} username={{this.commentusername}} usersay={{this.commentcontent}} usershow={{this.commentusershow}}>发表</button>
+                            </div>
+                        </div>
+                        <!-- ………………………………………………此处 ^ 回复发表……………………………………………… -->
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+                <p>{{this.commentcontent}}</p>
+            </div>
+
+            <div class="toolbar" commentuserid={{this.commentuserid}} value={{this.commentid}}>
+                <i class="toolbtn reply reply{{this.commentid}}"><i class="am-icon-reply"></i>回复</i>
+                <i class="toolbtn close {{this.commentuserid}}" value={{this.commentuserid}}><i class="am-icon-close"></i> 删除</i>
+            </div>
+            <!-- ………………………………………………此处 回复发表……………………………………………… -->
+            <div class="am-comment replypublish replypublish2 {{this.commentid}}" bshow="0">
+                <a href="">
+                    <img class="am-comment-avatar nullusershow" src=imgs/nullusershow.png alt=""/>
+                </a>
+                <div class="am-comment-main">
+                    <div class="textarea">
+                        <textarea name="" placeholder="说点什么吧"></textarea>
+                    </div>
+                    <div class="publish">
+                        <button class="am-btn am-btn-secondary smpublish" value={{this.commentid}} userid={{this.commentuserid}} username={{this.commentusername}} usersay={{this.commentcontent}} usershow={{this.commentusershow}}>发表</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- ………………………………………………此处^回复发表……………………………………………… -->
+    </li>
+        {{/each}}
+    </script>
+</ul>
+
+
+    <!-- ………………………………此处以下为发表框…………………… -->
+<div class="am-comment-extend2">
+    <li id="am-comment-extend" class="am-comment">
+        <a href="">
+            <img class="am-comment-avatar nullusershow" src="imgs/nullusershow.png" alt=""/>
+        </a>
+        <div class="am-comment-main">
+            <div class="textarea">
+                <textarea name="" id="" placeholder="说点什么吧"></textarea>
+            </div>
+            <div class="publish">
+                <button id="maxpublish" class="am-btn am-btn-secondary">发表</button>
+            </div>
+        </div>
+    </li>
+</div>
+
+
+
+
+
+<hr data-am-widget="divider" style="" class="am-divider"/>
+<div class="advertising">
+    <p class="brand am-sans-serif">“北京VK生活馆”致力于为您提供舒心便利的服务，推荐给更多邻居让他们知道VK</p>
+
+    <p class="wx-title am-sans-serif">微信搜索公众号“北京VK生活馆”或者长按二维码识别</p>
+
+    <div class="qrcode">
+        <img src="imgs/wanke_2db.jpg" alt=""/>
+    </div>
+    <p class="contact-us am-sans-serif">联系我们请发送邮件至：</p>
+
+    <p class="email am-sans-serif">kefu@wankechangyang.com</p>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script>
+<script src="js/views/post_detail.js"></script>
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+}
+.am-header-extend{
+    width: 100%;
+    height: 49px;
+    position: relative;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ccc;
+}
+.am-header-extend div{
+    float: left;
+    width: 100px;
+    padding: 0;
+}
+#title-1{
+    position: absolute;
+    left:50%;
+    margin-left:-50px;
+    height: 49px;
+}
+#title-1 h1{
+    text-align: center;
+}
+#haederleft ,#haederright{
+    width: 82px;
+}
+#haederright{
+    position:absolute;
+    right:-5px;
+}
+#usr-sbm-s,#usr-sbm-sub{
+    line-height: 28px;
+    color: #ff8200;
+}
+#usr-sbm-s{
+    float:left;
+}
+#usr-sbm-sub{
+    color: #ff8200;
+}
+#usr-sbm-sub{
+    margin-left:13px;
+}
+#usr-sbm-s:hover,#usr-sbm-sub:hover{
+    text-decoration: none;
+}
+
+.am-header-right-extend{
+    margin-right:-20px;
+}
+.am-header-left-extend{
+    margin-left: -20px;
+}
+.am-dropdown-extend{
+    width:40%;
+    margin: 0 auto;
+}
+#usersay div{
+    margin:0;
+}
+textarea{
+    border:none;
+    width: 100%;
+    margin: 8px 0 8px 0;
+    padding:8px 15px 8px 15px;
+}
+.am-panel-extend{
+    background: #f9f9f9;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    border-top:1px solid #ccc;
+    margin-bottom: 10px;
+}
+.am-panel-extend i{
+    padding:0;
+    margin: 10px 0 0 25px;
+}
+#navbar{
+    padding:6px;
+}
+#navbar a{
+    margin:2px;
+}
+.am-form-group-extend{
+    border-top:1px solid #ccc;
+    margin-bottom: 5px;
+}
+#usr-say-leg{
+    display:block;
+    width: 100px;
+    height: 50px;
+    margin:5px 0px 0px 0px;
+    float:right;
+}
+#usr-say-leg div{
+    float: left;
+    width: 50px;
+    height: 40px;
+}
+#usr-say-leg p{
+    padding-top:3px;
+    display: block;
+    width: 50px;
+    height: 40px;
+    font-size: 20px;
+    margin:0;
+
+    /*line-heigh:30px;*/
+}
+.usr-say-leg-2{
+    text-align: right;
+}
+.maxlegcss p{
+    color:#dd514c;
+}
+#imgwall{
+    width: 100%;
+}
+#imgwall div{
+    margin:6px 0 0 6px;
+    float: left;
+}
+#addimg{
+    width: 100px;
+    height: 100px;
+    border: 1px dashed #ccc;
+}
+#addimg p{
+    margin:0;
+    padding:0px;
+    display:block;
+    width: 100px;
+    height: 100px;
+    line-height: 90px;
+    text-align: center;
+    font-size: 50px;
+    font-weight:100;
+    color:#ccc;
+}
+#imgwall .imgnav{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    position: relative;
+}
+#imgwall a{
+    width: 20px;
+    height: 20px;
+    display: block;
+    float:right;
+    color:#ccc;
+    position: relative;
+    right:0;
+    top:0;
+}
+#imgwall img{
+    padding:0;
+    margin:0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+
+}

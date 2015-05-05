@@ -1,0 +1,236 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background:#f3f3f3;
+}
+#headerl p{
+    display: block;
+    height: 100%;
+    width: 50px;
+    margin:0 0 0 35px;
+    position: absolute;
+    left:0;
+    top:0;
+}
+#field p{
+    margin:0;
+    font-size:14px;
+    text-align:center;
+}
+.tagsearch{
+    width: 80px;
+    height: 43px;
+    background: #fff;
+    float:left;
+    margin-top:10px;
+
+}
+.tagsearch select{
+    color:rgb(0, 140, 213);
+}
+.tagsearch button{
+    border:1px solid #ccc;
+    color:rgb(0, 140, 213);
+}
+#content{
+    margin:0 0 30px 0;
+}
+#field{
+    padding:5px 5px 10px 5px;
+    background: #fff;
+}
+#field .am-selected-icon{
+position:absolute;
+    left:60px;
+}
+#field input{
+    /*margin-left:60px;*/
+    float:right;
+}
+hr{
+    margin:0;
+    color: #f1f1f1;
+}
+.show{
+    width: 48px;
+    height: 47px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    float:left;
+}
+.show img{
+    width: 48px;
+    height: 47px;
+}
+.am-icon-extend{
+    color: #1E90FF;
+}
+.am-input-exend{
+    margin: 10px 0 10px 0;
+}
+.Publish{
+    background: #fff;
+    width: 100%;
+    padding: 10px;
+}
+.title{
+    width: 100%;
+    padding-left:60px;
+    position: relative;
+}
+.usersay{
+    margin:0;
+    padding-top:-10px;
+    display:block;
+    margin-top:10px;
+    font-size:14px;
+    color:#101010;
+}
+.username{
+    margin:0;
+    /*display: block;*/
+    /*width: 80px;*/
+    /*height: 20px;*/
+    color: rgb(93, 100, 125);
+    font-weight:900;
+    font-size:16px;
+}
+.tag{
+    display: block;
+    width: 80px;
+    height: 20px;
+    position: absolute;
+    text-align: right;
+    font-size: 18px;
+    right:0;
+    top:0;
+    color: rgb(0, 140, 213);
+    margin:0 0 5px 0px;
+}
+.time{
+    font-size:12px;
+    color: rgb(102,102,102);
+}
+.with{
+    font-size:12px;
+    color: rgb(102,102,102);
+    float:right;
+}
+
+.images{
+    overflow:auto;zoom:1;
+}
+.imgpatternone{
+    width: 200px;
+}
+.imgpatternone img{
+    width: 200px;
+}
+.imgpatterntwo{
+    width: 220px;
+}
+.imgpatterntwo img{
+    width: 100px;
+    height: 100px;
+    margin:10px 10px 0 0;
+    float:left;
+}
+.imgpatternthree{
+    width: 210px;
+}
+.imgpatternthree img{
+    width: 60px;
+    height: 60px;
+    margin: 10px 10px 0 0;
+    float:left;
+}
+.foot{
+    width: 100%;
+}
+.foot a{
+    display: block;
+    width: 65px;
+    float:right;
+    color:#000;
+}
+.foot a:hover{
+    cursor:pointer;
+}
+#bottom{
+    height: 70px;
+    border: 1px solid #ccc;
+    background: #fff;
+    position: fixed;
+    left:0;
+    top:100%;
+    margin-top: -70px;
+}
+#bottom i{
+    color: #333333;
+}
+
+#foots{
+    background: #f3f3f3;
+    width: 58px;
+    height: 58px;
+    border:1px solid #ccc;
+    border-radius: 29px;
+    position: fixed;
+    right:11px;
+    bottom:  70px;
+}
+#foots div{
+    width: 18px;
+    height: 58px;
+    margin:auto;
+}
+#foots div i{
+    line-height: 58px;
+}
+#arrow{
+    background: #f9f9f9;
+    width: 58px;
+    height: 58px;
+    border:1px solid #ccc;
+    border-radius: 29px;
+    position: fixed;
+    right:11px;
+    bottom:140px;
+}
+#arrow div{
+    width: 22px;
+    height: 58px;
+    margin:0 auto;
+}
+#arrow a,#foots a{
+    color:#333;
+}
+#arrow div {
+    line-height: 58px;
+}
+#load{
+    width: 22px;
+    height: 22px;
+    margin:0 auto;
+    margin-top:40px;
+}
+#users :hover{
+     cursor:pointer;
+ }
+.am-navbar{
+    background:rgb(247,247,247);
+}
+.am-navbar a{
+    color:rgb(102,102,102);
+}
+#Neighborhood{
+    color:rgb(50,137,199);
+}
+
+.am-gallery-item{
+    width: 100px;
+    height: 100px;
+}
+

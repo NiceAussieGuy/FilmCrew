@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/views/post_index.css">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+    <div id="field">
+        <div class="tagsearch">
+            <select data-am-selected>
+                <option value="全部&全部">全部</option>
+                <option value="551e0cbde4b0cd5b62424754&约吃">约吃</option>
+                <option value="551e0cc4e4b0cd5b6242478f&约玩">约玩</option>
+                <option value="551e0ccce4b0cd5b624247cc&约聊">约聊</option>
+                <option value="551e0cd6e4b0cd5b62424810&约运动">约运动</option>
+                <option value="551e0cf5e4b0cd5b624248f7&图书漂流">图书漂流</option>
+                <option value="551e0ce2e4b0cd5b62424872&二手交易">二手交易</option>
+                <option value="551e0cece4b0cd5b624248b8&有事想问">有事想问</option>
+                <option value="551e0cdce4b0cd5b6242483a&技能互换">技能互换</option>
+                <option value="551e0cfce4b0cd5b62424929&更多">更多</option>
+            </select>
+        </div>
+
+        <div class="am-input-group am-input-exend" >
+           <input type="text" class="am-form-field" placeholder="搜索">
+        <span class="am-input-group-label">
+            <span class="am-icon-search am-icon-extend"></span>
+        </span>
+        </div>
+    </div>
+
+    <div id="publish">
+        <script type="text/x-handlebars-template" id="usercontent">
+            {{#each posts}}
+            <hr data-am-widget="divider" style="" class="am-divider"/>
+            <div class="Publish am-animation-fade doremove" value={{this.value}}>
+                <div class="show"><img src={{this.titleimg}}></div>
+                <div class="title" value={{this.value}}>
+                    <p class="username am-sans-serif">{{this.name}}</p>
+                    <div class="content">
+                        <p class="usersay am-sans-serif">{{this.usersay}}</p>
+                    </div>
+                    <span class="tag am-sans-serif" >{{tag}}</span>
+                <div class="images {{this.pattern}}" value={{this.img}}>
+                    {{#if this.img}}
+                    {{#each this.img}}
+                    <img src={{this}} class="imgpreview" value="0">
+                    {{/each}}
+                    {{/if}}
+                </div>
+                    <span class="time am-sans-serif">{{this.time}}</span>
+                    <span class="with am-sans-serif">查看更多</span>
+                </div>
+            </div>
+            {{/each}}
+        </script>
+    </div>
+
+    <div id="load">
+        <i class="am-icon-refresh am-icon-spin am-icon-spin-extend am-icon-sm"></i>
+    </div>
+<div  id="arrow" data-am-widget="gotop">
+    <div>
+        <a>
+        <i  class="am-icon am-icon-arrow-up am-icon-sm"></i>
+        </a>
+    </div>
+</div>
+<div id="foots">
+    <div>
+        <a>
+        <i class="am-icon am-icon-plus am-icon-sm"></i>
+        </a>
+    </div>
+</div>
+    <div data-am-widget="navbar" class="am-navbar am-cf"
+         id="">
+        <ul class="am-navbar-nav am-cf am-avg-sm-4 am-navbar-nav-extend ">
+            <li>
+                <a href="shop_index.html" class="">
+                    <i class="am-header-icon am-icon-cutlery am-icon-sm"></i>
+                    <span class="am-navbar-label">易生活</span>
+                </a>
+            </li>
+            <li>
+                <a id="Neighborhood" href="post_index.html" class="">
+                    <i class="am-header-icon am-icon-users am-icon-sm"></i>
+                    <span class="am-navbar-label">邻里圈</span>
+                </a>
+            </li>
+            <li>
+                <a  id="users">
+                    <i class="am-header-icon am-icon-user am-icon-sm"></i>
+                    <span class="am-navbar-label">个人中心</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.widgets.helper.min.js"></script>
+    <script src="assets/js/handlebars.min.js"></script>
+    <script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script>
+    <script src="js/views/post_index.js"></script>
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <![endif]-->
+</body>
+</html>

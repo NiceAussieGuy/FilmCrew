@@ -1,0 +1,42 @@
+#heard{
+    width: 100%;
+    padding-top:40px;
+    padding-bottom: 20px;
+}
+#heard .img{
+    width: 72px;
+    height: 72px;
+    margin:0 auto;
+}
+#heard .tel{
+    width: 127px;
+    height: 35px;
+    margin:0 auto;
+    position: relative;
+    background: rgb(108, 218, 9);
+    overflow:hidden;
+}
+#heard .tel a{
+    width: 140px;
+    height: 38px;
+    background: rgb(108, 218, 9);
+    border:none;
+    padding-right:10px;
+    position: absolute;
+    left:-12px;
+    top:-3px;
+}
+
+#heard p{
+    text-align: center;
+}
+.am-list-extend li{
+    margin-bottom: 10px;
+}
+.am-list-extend p{
+    margin:0;
+    padding-left:15px;
+}
+#users :hover{
+    cursor:pointer;
+}

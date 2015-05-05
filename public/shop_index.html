@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link rel="stylesheet" href="css/views/shop_index.css">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div class="am-animation-fade">
+<ul class="am-list am-list-static am-list-extend">
+    <li>周边小店</li>
+        <script type="text/x-handlebars-template" id="shop">
+            {{#each shops}}
+            <li><div  class="shopcontent" value="{{this.id}}"><img class="am-circle" src={{this.logo}} width="40" height="40"/><p class="am-sans-serif">{{this.name}}</p></div><a href="tel:{{this.tel}}" class="am-icon am-icon-phone am-icon-md"></a></li>
+            {{/each}}
+        </script>
+    <li>物业管理</li>
+    <script type="text/x-handlebars-template" id="shop2">
+        {{#each shops}}
+        <li><div  class="shopcontent" value="{{this.id}}"><img class="am-circle" src={{this.logo}} width="40" height="40"/><p class="am-sans-serif">{{this.name}}</p></div><a href="tel:{{this.tel}}" class="am-icon am-icon-phone am-icon-md"></a></li>
+        {{/each}}
+    </script>
+</ul>
+</div>
+
+<div data-am-widget="navbar" class="am-navbar am-cf" id="">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4 am-navbar-nav-extend ">
+        <li>
+            <a id="life" href="shop_index.html" class="">
+                <i class="am-header-icon am-icon-cutlery am-icon-sm"></i>
+                <span class="am-navbar-label">易生活</span>
+            </a>
+        </li>
+        <li>
+            <a id="Neighborhood" href="post_index.html" class="">
+                <i class="am-header-icon am-icon-users am-icon-sm"></i>
+                <span class="am-navbar-label">邻里圈</span>
+            </a>
+        </li>
+        <li>
+            <a  id="users">
+                <i class="am-header-icon am-icon-user am-icon-sm"></i>
+                <span class="am-navbar-label">个人中心</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.widgets.helper.min.js"></script>
+    <script src="assets/js/handlebars.min.js"></script>
+    <script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script>
+    <script src="js/views/shop_index.js"></script>
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <![endif]-->
+</body>
+</html>

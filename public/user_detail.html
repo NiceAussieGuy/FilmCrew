@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link rel="stylesheet" href="css/views/user_detail.css">
+</head>
+<body>
+
+
+<script type="text/x-handlebars-template" id="user">
+    <div class="am-animation-fade">
+        <div id="userheard"><img src="{{user.headUrl}}" class="am-circle"/></div>
+        <div id="username"><p class="am-sans-serif"><strong>{{user.nickname}}</strong></p></div>
+        <div id="content">
+            <ul class="am-list am-list-static am-list-border">
+                <li id="user_post"><i class="am-icon am-icon-users icon-1 am-icon-sm"></i>个人动态<i
+                        class="am-icon am-icon-angle-right icon-2 am-icon-md"></i></li>
+                <li id="user_address"><i class="am-icon am-icon-map-marker icon-1 am-icon-sm"></i>更改小区<i
+                        class="am-icon am-icon-angle-right icon-2 am-icon-md"></i></li>
+                <li id="user_contact"><i class="am-icon am-icon-phone icon-1 am-icon-sm"></i>联系方式<i
+                        class="am-icon am-icon-angle-right icon-2 am-icon-md"></i></li>
+            </ul>
+        </div>
+        <button class="am-btn am-btn-block" type="button" data-am-modal="{target: '#my-confirm'}">退出登录</button>
+    </div>
+</script>
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd"></div>
+        <div class="am-modal-bd">
+            确定退出登录？
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" id="confirm-logout" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf" id="">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4 am-navbar-nav-extend ">
+        <li>
+            <a href="shop_index.html" class="">
+                <i class="am-header-icon am-icon-cutlery am-icon-sm"></i>
+                <span class="am-navbar-label">易生活</span>
+            </a>
+        </li>
+        <li>
+            <a href="post_index.html" class="">
+                <i class="am-header-icon am-icon-users am-icon-sm"></i>
+                <span class="am-navbar-label">邻里圈</span>
+            </a>
+        </li>
+        <li>
+            <a id="users">
+                <i class="am-header-icon am-icon-user am-icon-sm"></i>
+                <span class="am-navbar-label">个人中心</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script>
+<script src="js/views/user_detail.js"></script>
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+</body>
+</html>
