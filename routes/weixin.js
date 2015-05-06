@@ -10,107 +10,107 @@ var fs = require('fs');
 var AV = require('avoscloud-sdk').AV;
 AV.initialize("f7r02mj6nyjeocgqv7psbb31mxy2hdt22zp2mcyckpkz7ll8", "blq4yetdf0ygukc7fgfogp3npz33s2t2cjm8l5mns5gf9w3z");
 
-//var api = new API(config.CorpID, config.appSecret, function (callback) {
-//    var currentDate = new Date();
-//    var expireTime = new Date().setDate(config["expireTime"]);
-//
-//    // 比较是否过期，没过期直接返回token
-//    if (currentDate >= expireTime) {
-//        console.log('--------------------------------');
-//        console.log('-----------token超时------------');
-//        api.getAccessToken(function (err, token) {
-//            if (err) return callback(err);
-//            // 记录token值
-//            config["access_token"] = token.accessToken;
-//            // 记录下一次过期时间点
-//            config["expireTime"] = token.expireTime;
-//            console.log('-----------token重新获取------------');
-//            console.log(token);
-//
-//            callback(null, token);
-//        });
-//
-//    } else {
-//        console.log('-----------token未超时------------');
-//        console.log('-----------token已获取------------');
-//        console.log(config["access_token"]);
-//
-//        callback(null, config["access_token"]);
-//    }
-//});
+var api = new API(config.CorpID, config.Secret, config.AgentId, function (callback) {
+    var currentDate = new Date();
+    var expireTime = new Date().setDate(config["expireTime"]);
 
-/* GET users listing. */
-router.get('/', function (req, res) {
-    console.log(req.query.echostr);
-    var echostr = req.query.echostr;
-    var crypt = new WXBizMsgCrypt(config.Token, config.EncodingAESKey, config.CorpID);
-    console.log("crypt: " + crypt);
+    // 比较是否过期，没过期直接返回token
+    if (currentDate >= expireTime) {
+        console.log('--------------------------------');
+        console.log('-----------token超时------------');
+        api.getAccessToken(function (err, token) {
+            if (err) return callback(err);
+            // 记录token值
+            config["access_token"] = token.accessToken;
+            // 记录下一次过期时间点
+            config["expireTime"] = token.expireTime;
+            console.log('-----------token重新获取------------');
+            console.log(token);
 
-    var newechostr = crypt.decrypt(echostr);
-    console.log(newechostr);
+            callback(null, token);
+        });
 
-    res.end(newechostr.message);
+    } else {
+        console.log('-----------token未超时------------');
+        console.log('-----------token已获取------------');
+        console.log(config["access_token"]);
+
+        callback(null, config["access_token"]);
+    }
 });
 
-//router.post('/getJsConfig', function (req, res) {
-//    console.log(config);
-//    var url = req.body.url;
-//    if (!url && url == "") {
-//        res.json("参数\"page\"不能为空！");
-//    }
+///* GET users listing. */
+//router.get('/', function (req, res) {
+//    console.log(req.query.echostr);
+//    var echostr = req.query.echostr;
+//    var crypt = new WXBizMsgCrypt(config.Token, config.EncodingAESKey, config.CorpID);
+//    console.log("crypt: " + crypt);
 //
-//    var param = {
-//        debug: false,
-//        jsApiList: [
-//            'onMenuShareTimeline',
-//            'onMenuShareAppMessage',
-//            'chooseImage',
-//            'previewImage',
-//            'uploadImage'],
-//        url: url
-//    };
-//    console.log(param);
-//    api.getJsConfig(param, function (err, result) {
-//        console.log(err);
-//        console.log('------------------------------');
-//        console.log(result);
-//        res.json(result);
-//    });
+//    var newechostr = crypt.decrypt(echostr);
+//    console.log(newechostr);
+//
+//    res.end(newechostr.message);
 //});
-//
-//router.post('/getAuthUrl', function (req, res) {
-//    var page = req.body.page;
-//    if (!page && page == "") {
-//        res.json("参数\"page\"不能为空！");
-//    }
-//
-//    var url = client.getAuthorizeURL(page, 'lijun2015', 'snsapi_userinfo');
-//
-//    res.json({
-//        authUrl: url
-//    });
-//});
-//
-//router.post('/userSignUp', function (req, res) {
-//    var code = req.body.code,
-//        state = req.body.state;
-//    if (!code && code == "") {
-//        res.json("参数\"code\"不能为空！");
-//    }
-//
-//    client.getAccessToken(code, function (err, result) {
-//        //var accessToken = result.data.access_token;
-//        var openid = result.data.openid;
-//        client.getUser(openid, function (err, result) {
-//            if (err) {
-//                res.json(err);
-//            }
-//
-//            res.json(result);
-//        });
-//    });
-//});
-//
+
+router.post('/getJsConfig', function (req, res) {
+    console.log(config);
+    var url = req.body.url;
+    if (!url && url == "") {
+        res.json("参数\"page\"不能为空！");
+    }
+
+    var param = {
+        debug: false,
+        jsApiList: [
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'chooseImage',
+            'previewImage',
+            'uploadImage'],
+        url: url
+    };
+    console.log(param);
+    api.getJsConfig(param, function (err, result) {
+        console.log(err);
+        console.log('------------------------------');
+        console.log(result);
+        res.json(result);
+    });
+});
+
+router.post('/getAuthUrl', function (req, res) {
+    var page = req.body.page;
+    if (!page && page == "") {
+        res.json("参数\"page\"不能为空！");
+    }
+
+    var url = api.getAuthorizeURL(page, 'lijun2015', 'snsapi_userinfo');
+
+    res.json({
+        authUrl: url
+    });
+});
+
+router.post('/userSignUp', function (req, res) {
+    var code = req.body.code,
+        state = req.body.state;
+    if (!code && code == "") {
+        res.json("参数\"code\"不能为空！");
+    }
+
+    client.getAccessToken(code, function (err, result) {
+        //var accessToken = result.data.access_token;
+        var openid = result.data.openid;
+        client.getUser(openid, function (err, result) {
+            if (err) {
+                res.json(err);
+            }
+
+            res.json(result);
+        });
+    });
+});
+
 //router.post('/sendMessage', function (req, res) {
 //    var userId = req.body.userId,
 //        postId = req.body.postId,
