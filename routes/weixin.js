@@ -52,31 +52,31 @@ var api = new API(config.CorpID, config.Secret, config.AgentId, function (callba
 //    res.end(newechostr.message);
 //});
 
-router.post('/getJsConfig', function (req, res) {
-    console.log(config);
-    var url = req.body.url;
-    if (!url && url == "") {
-        res.json("参数\"page\"不能为空！");
-    }
-
-    var param = {
-        debug: false,
-        jsApiList: [
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'chooseImage',
-            'previewImage',
-            'uploadImage'],
-        url: url
-    };
-    console.log(param);
-    api.getJsConfig(param, function (err, result) {
-        console.log(err);
-        console.log('------------------------------');
-        console.log(result);
-        res.json(result);
-    });
-});
+//router.post('/getJsConfig', function (req, res) {
+//    console.log(config);
+//    var url = req.body.url;
+//    if (!url && url == "") {
+//        res.json("参数\"page\"不能为空！");
+//    }
+//
+//    var param = {
+//        debug: false,
+//        jsApiList: [
+//            'onMenuShareTimeline',
+//            'onMenuShareAppMessage',
+//            'chooseImage',
+//            'previewImage',
+//            'uploadImage'],
+//        url: url
+//    };
+//    console.log(param);
+//    api.getJsConfig(param, function (err, result) {
+//        console.log(err);
+//        console.log('------------------------------');
+//        console.log(result);
+//        res.json(result);
+//    });
+//});
 
 router.post('/getAuthUrl', function (req, res) {
     var page = req.body.page;
@@ -91,25 +91,25 @@ router.post('/getAuthUrl', function (req, res) {
     });
 });
 
-router.post('/userSignUp', function (req, res) {
-    var code = req.body.code,
-        state = req.body.state;
-    if (!code && code == "") {
-        res.json("参数\"code\"不能为空！");
-    }
-
-    client.getAccessToken(code, function (err, result) {
-        //var accessToken = result.data.access_token;
-        var openid = result.data.openid;
-        client.getUser(openid, function (err, result) {
-            if (err) {
-                res.json(err);
-            }
-
-            res.json(result);
-        });
-    });
-});
+//router.post('/userSignUp', function (req, res) {
+//    var code = req.body.code,
+//        state = req.body.state;
+//    if (!code && code == "") {
+//        res.json("参数\"code\"不能为空！");
+//    }
+//
+//    client.getAccessToken(code, function (err, result) {
+//        //var accessToken = result.data.access_token;
+//        var openid = result.data.openid;
+//        client.getUser(openid, function (err, result) {
+//            if (err) {
+//                res.json(err);
+//            }
+//
+//            res.json(result);
+//        });
+//    });
+//});
 
 //router.post('/sendMessage', function (req, res) {
 //    var userId = req.body.userId,
