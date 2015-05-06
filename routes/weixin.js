@@ -111,54 +111,74 @@ router.post('/getAuthUrl', function (req, res) {
 //    });
 //});
 
-//router.post('/sendMessage', function (req, res) {
-//    var userId = req.body.userId,
-//        postId = req.body.postId,
-//        text = "";
-//    console.log(req.body);
-//    if (!userId && userId == "") {
-//        res.json("参数\"userId\"不能为空！");
-//    }
-//    if (!postId && postId == "") {
-//        res.json("参数\"postId\"不能为空！");
-//    }
-//
-//    var post = AV.Object.extend('post');
-//    var post_query = new AV.Query(post);
-//    post_query.include("username");
-//    post_query.get(postId, function (post) {
-//        console.log("post.get('username').get('authData')" + post.get('username').get('authData'));
-//        var openId = post.get('username').get('authData').weixin.openid;
-//        var query = new AV.Query(AV.User);
-//        query.get(userId, {
-//            success: function (user) {
-//                // Do stuff
-//                text = "活动提醒\n" +
-//                "有人报名了您发起的活动\n" +
-//                "\n" +
-//                "姓名:" + user.get("authData").weixin.nickname + "\n" +
-//                "联系方式:" + user.get("mobilePhoneNumber") + "\n" +
-//                "\n" +
-//                "<a href=\"http://fuwuhao.dianyingren.com/post_detail.html?id=" + postId + "\">点击查看详情</a>"
-//                "\n";
-//                console.log(user.get("authData").weixin);
-//                console.log(user.get("authData").weixin.openid);
-//
-//                api.sendText(openId, text, function (err, result) {
-//                    if (err) {
-//                        res.json(err);
-//                    }
-//
-//                    console.log(result);
-//
-//                    res.json(result);
-//                });
-//            }
-//        });
-//    });
-//
-//});
-//
+router.post('/sendMessage', function (req, res) {
+    api.send({
+        "touser": "lijun",
+        "toparty": "",
+        "totag": ""
+    }, {
+        "msgtype": "text",
+        "text": {
+            "content": "Holiday Request For Pony(http://xxxxx)"
+        },
+        "safe": "0"
+    }, function (err, result) {
+        if (err) {
+            res.json(err);
+        }
+
+        console.log(result);
+
+        res.json(result);
+    });
+
+    //var userId = req.body.userId,
+    //    postId = req.body.postId,
+    //    text = "";
+    //console.log(req.body);
+    //if (!userId && userId == "") {
+    //    res.json("参数\"userId\"不能为空！");
+    //}
+    //if (!postId && postId == "") {
+    //    res.json("参数\"postId\"不能为空！");
+    //}
+    //
+    //var post = AV.Object.extend('post');
+    //var post_query = new AV.Query(post);
+    //post_query.include("username");
+    //post_query.get(postId, function (post) {
+    //    console.log("post.get('username').get('authData')" + post.get('username').get('authData'));
+    //    var openId = post.get('username').get('authData').weixin.openid;
+    //    var query = new AV.Query(AV.User);
+    //    query.get(userId, {
+    //        success: function (user) {
+    //            // Do stuff
+    //            text = "活动提醒\n" +
+    //            "有人报名了您发起的活动\n" +
+    //            "\n" +
+    //            "姓名:" + user.get("authData").weixin.nickname + "\n" +
+    //            "联系方式:" + user.get("mobilePhoneNumber") + "\n" +
+    //            "\n" +
+    //            "<a href=\"http://fuwuhao.dianyingren.com/post_detail.html?id=" + postId + "\">点击查看详情</a>"
+    //            "\n";
+    //            console.log(user.get("authData").weixin);
+    //            console.log(user.get("authData").weixin.openid);
+    //
+    //            api.sendText(openId, text, function (err, result) {
+    //                if (err) {
+    //                    res.json(err);
+    //                }
+    //
+    //                console.log(result);
+    //
+    //                res.json(result);
+    //            });
+    //        }
+    //    });
+    //});
+
+});
+
 //router.post('/uploadImage', function (req, res) {
 //    var serverId = req.body.serverId;
 //    if (!serverId && serverId == "") {
