@@ -84,7 +84,7 @@ router.post('/getAuthUrl', function (req, res) {
         res.json("参数\"page\"不能为空！");
     }
 
-    var url = api.getAuthorizeURL(page, 'lijun2015', 'snsapi_userinfo');
+    var url = api.getAuthorizeURL('http://crew.dianyingren.com/post_save.html', 'lijun2015', 'snsapi_userinfo');
 
     res.json({
         authUrl: url
