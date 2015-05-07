@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('../config');
 var webchat = require('wechat-enterprise');
-var sign = require('./sign');
+var sign = require('./sign.js');
 var request = require('request');
 var fs = require('fs');
 var AV = require('avoscloud-sdk').AV;
@@ -66,15 +66,15 @@ router.post('/getJsConfig', function (req, res) {
                 return res.json(error);
             }
             var js_ticket = body.ticket;
-            var sign = sign(js_ticket, url);
-            console.log(sign);
+            var sign_obj = sign(js_ticket, url);
+            console.log(sign_obj);
 
             var js_config = {
                 debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: config.corpId, // 必填，企业号的唯一标识，此处填写企业号corpid
-                timestamp: sign.timestamp, // 必填，生成签名的时间戳
-                nonceStr: sign.nonceStr, // 必填，生成签名的随机串
-                signature: sign.signature,// 必填，签名，见附录1
+                timestamp: sign_obj.timestamp, // 必填，生成签名的时间戳
+                nonceStr: sign_obj.nonceStr, // 必填，生成签名的随机串
+                signature: sign_obj.signature,// 必填，签名，见附录1
                 jsApiList: [
                     'onMenuShareTimeline',
                     'onMenuShareAppMessage',
