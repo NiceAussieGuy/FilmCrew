@@ -111,6 +111,7 @@ router.post('/getAuthUrl', function (req, res) {
 //});
 
 router.post('/sendMessage', function (req, res) {
+    console.log(config);
     api.send({
         "touser": "1427945933704",
         "toparty": "",
