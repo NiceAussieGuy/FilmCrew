@@ -27,7 +27,7 @@ var api = new webchat.API(config.corpId, config.secret, config.agentId, function
             if (!token.expireTime) {
                 var expireTime = new Date().getDate() + 7200000;
                 config["expireTime"] = expireTime;
-            }else{
+            } else {
                 config["expireTime"] = token.expireTime;
             }
 
@@ -42,7 +42,7 @@ var api = new webchat.API(config.corpId, config.secret, config.agentId, function
         console.log('-----------token已获取------------');
         console.log(config["access_token"]);
 
-        callback(null, config["access_token"]);
+        callback(null, {accessToken: config["access_token"]});
     }
 });
 
