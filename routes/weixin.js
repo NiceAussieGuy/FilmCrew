@@ -6,6 +6,7 @@ var router = express.Router();
 var config = require('../config');
 var webchat = require('wechat-enterprise');
 var sign = require('./sign');
+var request = require('request');
 var fs = require('fs');
 var AV = require('avoscloud-sdk').AV;
 AV.initialize("f7r02mj6nyjeocgqv7psbb31mxy2hdt22zp2mcyckpkz7ll8", "blq4yetdf0ygukc7fgfogp3npz33s2t2cjm8l5mns5gf9w3z");
@@ -59,26 +60,34 @@ router.post('/getJsConfig', function (req, res) {
         res.json("参数\"page\"不能为空！");
     }
 
-    var sign = sign('jsapi_ticket', url);
-    console.log(sign);
+    api.getLatestToken(function (err, token) {
+        request.get({url: 'https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=' + token}, function (error,response,body) {
+            if(err){
+                return res.json(error);
+            }
+            var js_ticket = body.ticket;
+            var sign = sign(js_ticket, url);
+            console.log(sign);
 
-    var js_config = {
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: config.corpId, // 必填，企业号的唯一标识，此处填写企业号corpid
-        timestamp: sign.timestamp, // 必填，生成签名的时间戳
-        nonceStr: sign.nonceStr, // 必填，生成签名的随机串
-        signature: sign.signature,// 必填，签名，见附录1
-        jsApiList: [
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'chooseImage',
-            'previewImage',
-            'uploadImage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-    };
+            var js_config = {
+                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: config.corpId, // 必填，企业号的唯一标识，此处填写企业号corpid
+                timestamp: sign.timestamp, // 必填，生成签名的时间戳
+                nonceStr: sign.nonceStr, // 必填，生成签名的随机串
+                signature: sign.signature,// 必填，签名，见附录1
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            };
 
-    console.log('------------------------------');
-    console.log(js_config);
-    res.json(js_config);
+            console.log('------------------------------');
+            console.log(js_config);
+            res.json(js_config);
+        });
+    });
 });
 
 router.post('/getAuthUrl', function (req, res) {
