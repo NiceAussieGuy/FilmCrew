@@ -125,7 +125,9 @@ router.post('/getAuthUrl', function (req, res) {
 
 router.post('/sendMessage', function (req, res) {
     api.send({
-        "touser": "lijun|"
+        "touser": "1427945933704|lijun|",
+        "toparty": "",
+        "totag": ""
     }, {
         "msgtype": "text",
         "text": {
