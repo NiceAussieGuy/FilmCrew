@@ -19,7 +19,7 @@ var api = new webchat.API(config.corpId, config.secret, config.agentId, function
     if (currentDate >= expireTime) {
         console.log('--------------------------------');
         console.log('-----------token超时------------');
-        api.getLatestToken(function (err, token) {
+        api.getAccessToken(function (err, token) {
             if (err) return callback(err);
             // 记录token值
             config["access_token"] = token.accessToken;
