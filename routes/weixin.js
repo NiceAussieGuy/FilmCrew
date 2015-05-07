@@ -12,26 +12,21 @@ var AV = require('avoscloud-sdk').AV;
 AV.initialize("f7r02mj6nyjeocgqv7psbb31mxy2hdt22zp2mcyckpkz7ll8", "blq4yetdf0ygukc7fgfogp3npz33s2t2cjm8l5mns5gf9w3z");
 
 var api = new webchat.API(config.corpId, config.secret, config.agentId, function (callback) {
-    var currentDate = new Date();
-    var expireTime = new Date().setDate(config["expireTime"]);
 
-    // 比较是否过期，没过期直接返回token
-    if (currentDate >= expireTime) {
+    if (config.access_token == "" || config.access_token == null){
         console.log('--------------------------------');
-        console.log('-----------token超时------------');
+        console.log('-----------token未初始化------------');
         api.getAccessToken(function (err, token) {
             if (err) return callback(err);
             // 记录token值
             config["access_token"] = token.accessToken;
             // 记录下一次过期时间点
-            config["expireTime"] = token.expireTime;
-            console.log('-----------token重新获取------------');
+            console.log('-----------token已初始化------------');
             console.log(token);
 
             callback(null, token);
         });
-
-    } else {
+    }else{
         console.log('-----------token未超时------------');
         console.log('-----------token已获取------------');
         console.log(config["access_token"]);
