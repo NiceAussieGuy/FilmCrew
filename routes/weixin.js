@@ -48,8 +48,8 @@ router.post('/getJsConfig', function (req, res) {
     }
 
     api.getLatestToken(function (err, token) {
-        request.get({url: 'https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=' + token}, function (error,response,body) {
-            if(err){
+        request.get({url: 'https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=' + token}, function (error, response, body) {
+            if (err) {
                 return res.json(error);
             }
             var js_ticket = body.ticket;
@@ -123,7 +123,9 @@ router.post('/sendMessage', function (req, res) {
         "safe": "0"
     }, function (err, result) {
         if (err) {
-            res.json(err);
+            console.log(err);
+            console.log('-------------------------------');
+            return res.json(err);
         }
 
         console.log(result);
