@@ -25,7 +25,7 @@ var api = new webchat.API(config.corpId, config.secret, config.agentId, function
             config["access_token"] = token.accessToken;
             // 记录下一次过期时间点
             if (!token.expireTime) {
-                var expireTime = new Date().getDate() + 7200000;
+                var expireTime = new Date().getTime() + 7200000;
                 config["expireTime"] = expireTime;
             } else {
                 config["expireTime"] = token.expireTime;
