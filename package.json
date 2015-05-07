@@ -16,6 +16,7 @@
     "wechat-enterprise": "latest",
     "avoscloud-sdk": "latest",
     "wechat-crypto": "latest",
-    "request": "latest"
+    "request": "latest",
+    "jssha": "^1.5.0"
   }
 }
