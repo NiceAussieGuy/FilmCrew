@@ -24,7 +24,13 @@ var api = new webchat.API(config.corpId, config.secret, config.agentId, function
             // 记录token值
             config["access_token"] = token.accessToken;
             // 记录下一次过期时间点
-            config["expireTime"] = token.expireTime;
+            if (!token.expireTime) {
+                var expireTime = new Date().getDate() + 7200000;
+                config["expireTime"] = expireTime;
+            }else{
+                config["expireTime"] = token.expireTime;
+            }
+
             console.log('-----------token重新获取------------');
             console.log(token);
 
