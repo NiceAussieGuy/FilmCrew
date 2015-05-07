@@ -40,19 +40,6 @@ var api = new webchat.API(config.corpId, config.secret, config.agentId, function
     }
 });
 
-///* GET users listing. */
-//router.get('/', function (req, res) {
-//    console.log(req.query.echostr);
-//    var echostr = req.query.echostr;
-//    var crypt = new WXBizMsgCrypt(config.Token, config.EncodingAESKey, config.CorpID);
-//    console.log("crypt: " + crypt);
-//
-//    var newechostr = crypt.decrypt(echostr);
-//    console.log(newechostr);
-//
-//    res.end(newechostr.message);
-//});
-
 router.post('/getJsConfig', function (req, res) {
     console.log(config);
     var url = req.body.url;
@@ -125,7 +112,7 @@ router.post('/getAuthUrl', function (req, res) {
 
 router.post('/sendMessage', function (req, res) {
     api.send({
-        "touser": "1427945933704|",
+        "touser": "1427945933704",
         "toparty": "",
         "totag": ""
     }, {
