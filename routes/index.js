@@ -7,7 +7,7 @@ var config = require('../config');
 router.get('/', function (req, res) {
     console.log(req.query.echostr);
     var echostr = req.query.echostr;
-    var crypt = new WXBizMsgCrypt(config.Token, config.EncodingAESKey, config.CorpID);
+    var crypt = new WXBizMsgCrypt(config.token, config.encodingAESKey, config.corpId);
     console.log("crypt: " + crypt);
 
     var newechostr = crypt.decrypt(echostr);
