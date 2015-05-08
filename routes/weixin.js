@@ -125,7 +125,7 @@ router.post('/sendMessage', function (req, res) {
     }, {
         "msgtype": "text",
         "text": {
-            "content": "Holiday Request For Pony(http://xxxxx)"
+            "content": "Holiday Request For Pony <a herf=\"www.baidu.com\">我是链接</a>"
         },
         "safe": "0"
     }, function (err, result) {
