@@ -119,7 +119,7 @@ router.post('/getAuthUrl', function (req, res) {
 router.post('/sendMessage', function (req, res) {
     console.log(config);
     api.send({
-        "touser": "@all",
+        "touser": "lijun",
         "toparty": "",
         "totag": ""
     }, {
