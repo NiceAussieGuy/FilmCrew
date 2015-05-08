@@ -3,7 +3,7 @@
  */
 module.exports = {
     corpId: "wxd1eb2698f2e719a1",
-    secret: "dpEAVmo6Z3NO0_9vZwkUHNpjKFfcmF5GnoKidiu2rdkLmtfnwotFhL4a-tDT0N-D",
+    secret: "uBf8VlFTJ1q0CeAOO1Wx_-n7sDcd5kxeCiIexNXR6RvlN3lnRjc0JqB9x-kpBuoi",
     token: "EE5kA",
     encodingAESKey: "eVVxdKAgLoQY4pJAJuEgElI3sH8hVbfIL48iFlXSmSc",
     agentId: '19',
